@@ -11,7 +11,7 @@
    
     // configuration =================
 
-    mongoose.connect('mongodb://node:nodeuser@0.0.0.0:27017/');     // connect to mongoDB database on modulus.io
+    mongoose.connect('mongodb://node:12345@0.0.0.0:27017/mean-chapter-1');     // connect to mongoDB database on modulus.io
 
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
     app.use(morgan('dev'));                                         // log every request to the console
