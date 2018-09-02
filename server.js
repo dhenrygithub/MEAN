@@ -7,10 +7,11 @@
     var morgan = require('morgan');             // log requests to the console (express4)
     var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
     var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-
+    var bindip = process.env.IP
+   
     // configuration =================
 
-    mongoose.connect('mongodb://node:nodeuser@mongo.onmodulus.net:27017/uwO3mypu');     // connect to mongoDB database on modulus.io
+    mongoose.connect('mongodb://node:nodeuser@0.0.0.0:27017/');     // connect to mongoDB database on modulus.io
 
     app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
     app.use(morgan('dev'));                                         // log every request to the console
@@ -21,4 +22,6 @@
 
     // listen (start app with node server.js) ======================================
     app.listen(8080);
+ 
+    console.log(`Running on IP ${bindip}`);
     console.log("App listening on port 8080");
