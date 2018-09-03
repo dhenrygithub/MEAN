@@ -7,7 +7,7 @@
     var morgan = require('morgan');             // log requests to the console (express4)
     var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
     var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
-    var bindip = process.env.IP
+    var bindip = process.env.IP;
    
     // configuration =================
 
@@ -35,9 +35,10 @@
         Todo.find(function(err, todos) {
 
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-            if (err)
+            if (err) {
                 res.send(err);
-
+            }
+            
             res.json(todos); // return all todos in JSON format
         });
     });
@@ -50,13 +51,16 @@
             text : req.body.text,
             done : false
         }, function(err, todo) {
-            if (err)
+            if (err) {
                 res.send(err);
-
+            }
+            
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
-                if (err)
+                if (err) {
                     res.send(err);
+                }
+                
                 res.json(todos);
             });
         });
@@ -68,13 +72,16 @@
         Todo.remove({
             _id : req.params.todo_id
         }, function(err, todo) {
-            if (err)
+            if (err) {
                 res.send(err);
-
+            }
+            
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
-                if (err)
-                    res.send(err)
+                if (err) {
+                    res.send(err);
+                }
+                
                 res.json(todos);
             });
         });
