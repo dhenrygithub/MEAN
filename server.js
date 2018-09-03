@@ -36,7 +36,7 @@
 
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err)
-                res.send(err)
+                res.send(err);
 
             res.json(todos); // return all todos in JSON format
         });
@@ -56,7 +56,7 @@
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
         });
